@@ -12,7 +12,7 @@
       "name": "revision",
       "source": "./plugins/revision",
       "description": "Память проекта: задачи, решения и документы Revision — MCP-сервер и навык работы с памятью.",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "category": "productivity"
     }
   ]

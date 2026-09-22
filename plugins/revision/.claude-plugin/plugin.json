@@ -1,7 +1,7 @@
 {
   "name": "revision",
   "displayName": "Revision",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Память проекта, которую ведёт агент: задачи, решения и документы Revision. Подключает MCP-сервер Revision и навык, который говорит, когда что записывать и читать.",
   "author": {
     "name": "Revision",
