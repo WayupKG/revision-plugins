@@ -1,0 +1,20 @@
+{
+  "name": "revision",
+  "interface": {
+    "displayName": "Revision"
+  },
+  "plugins": [
+    {
+      "name": "revision",
+      "source": {
+        "source": "local",
+        "path": "./plugins/revision"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

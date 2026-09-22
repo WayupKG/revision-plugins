@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "revision": {
+      "type": "http",
+      "url": "https://revision.replai.kg/api/v1/mcp"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "revision",
+  "version": "0.1.0",
+  "description": "Память проекта, которую ведёт агент: задачи, решения и документы Revision.",
+  "author": {
+    "name": "Revision",
+    "url": "https://revision.replai.kg"
+  },
+  "homepage": "https://revision.replai.kg/support",
+  "keywords": ["project memory", "tasks", "decisions", "documents", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Revision",
+    "shortDescription": "Память проекта: задачи, решения и документы в одном месте",
+    "longDescription": "Revision — место, где живут задачи, решения и документы ваших проектов, а агент держит их в актуальном виде. В начале работы он узнаёт, что изменилось с прошлого визита; перед предложением изменения ищет принятые решения; записывает решения и причины сбоев сразу, как понял; правит устаревшие документы точечно и с причиной. Задачи агент меняет только черновиком, который вы подтверждаете в Revision. Доступ — только к проектам, которые вы выбрали на экране согласия.",
+    "developerName": "Revision",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://revision.replai.kg",
+    "privacyPolicyURL": "https://revision.replai.kg/privacy",
+    "termsOfServiceURL": "https://revision.replai.kg/terms",
+    "defaultPrompt": [
+      "Что изменилось в проекте с прошлого раза?",
+      "Почему мы так решили? Найди решение в Revision",
+      "Запомни решение, которое мы только что приняли"
+    ],
+    "brandColor": "#121316",
+    "composerIcon": "./assets/logo.png",
+    "logo": "./assets/logo.png"
+  }
+}

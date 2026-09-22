@@ -1,0 +1,18 @@
+{
+  "name": "revision",
+  "displayName": "Revision",
+  "version": "0.1.0",
+  "description": "Память проекта, которую ведёт агент: задачи, решения и документы Revision. Подключает MCP-сервер Revision и навык, который говорит, когда что записывать и читать.",
+  "author": {
+    "name": "Revision",
+    "url": "https://revision.replai.kg"
+  },
+  "homepage": "https://revision.replai.kg/support",
+  "keywords": [
+    "project memory",
+    "tasks",
+    "decisions",
+    "documents",
+    "mcp"
+  ]
+}

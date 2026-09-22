@@ -1,0 +1,19 @@
+{
+  "name": "revision",
+  "owner": {
+    "name": "Revision",
+    "url": "https://revision.replai.kg"
+  },
+  "metadata": {
+    "description": "Плагины Revision — память проекта для агентов: задачи, решения и документы."
+  },
+  "plugins": [
+    {
+      "name": "revision",
+      "source": "./plugins/revision",
+      "description": "Память проекта: задачи, решения и документы Revision — MCP-сервер и навык работы с памятью.",
+      "version": "0.1.0",
+      "category": "productivity"
+    }
+  ]
+}
