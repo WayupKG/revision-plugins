@@ -1,6 +1,6 @@
 {
   "name": "revision",
-  "version": "0.4.9",
+  "version": "0.5.0",
   "description": "Память проекта, которую ведёт агент: задачи, решения и документы Revision.",
   "author": {
     "name": "Revision",
