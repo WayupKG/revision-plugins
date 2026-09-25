@@ -12,7 +12,7 @@
       "name": "revision",
       "source": "./plugins/revision",
       "description": "Память проекта: задачи, решения и документы Revision — навык работы с памятью. Подключение к проекту — файлом в репозитории.",
-      "version": "0.5.2",
+      "version": "0.6.0",
       "category": "productivity"
     }
   ]
