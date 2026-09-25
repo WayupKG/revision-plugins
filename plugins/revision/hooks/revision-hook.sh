@@ -60,7 +60,7 @@ tool)
     if printf '%s' "$command" | grep -Eq 'git( +-[cC] +[^ ]+)* +commit' \
       && ! printf '%s' "$command" | grep -q -e '--dry-run' -e 'commit --help'; then
       echo committed >>"$STATE"
-      say PostToolUse "Сделан коммит. Если он по задаче — в сообщении строка «Revision: KEY», затем link_commits: ответ спросит, что из работы записать в память."
+      say PostToolUse "Сделан коммит. Если он по задаче — в сообщении строка «Revision: KEY», затем link_commits с files (git show --name-only --format= HEAD): ответ назовёт записи, чей код изменился, и спросит, что записать в память."
     fi
     ;;
   esac

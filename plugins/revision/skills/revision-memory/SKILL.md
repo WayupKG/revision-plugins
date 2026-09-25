@@ -16,12 +16,13 @@ Revision — общая память проекта: следующий, кто 
 | --- | --- |
 | Начал работу | `what_changed` — кратко; вся группа — `kind`, с причинами — `detail` |
 | Взял задачу | `get_task` — прочти `decisions_to_check` до того, как писать код |
-| Собираешься предложить или поменять подход | `search_knowledge` с `types: ["DECISION"]` |
+| Собираешься предложить или поменять подход | `search_knowledge` с `types: ["DECISION"]`; все решения — `list_decisions` |
 | Решение принято, причина сбоя найдена, приём замечен | `remember` — сразу, с `rejected`, `paths`, `commit` |
 | Опираешься на запись с полем `code` | `git log <commit>..HEAD -- <paths>` → `confirm_memory` |
 | Меняешь то, на что опираются другие | `get_document` / `get_decision` → `backlinks` |
 | Правка кода сделала документ неверным | `edit_document` с `why` |
-| Закоммитил работу по задаче | строка `Revision: KEY` → `link_commits` → ответ на `remember.ask` |
+| Закоммитил работу по задаче | строка `Revision: KEY` → `link_commits` с `files` → сверь `code_changed`, ответь на `remember.ask` |
+| От решения отказались, замены нет | `set_decision_status` `revoked` с `why` |
 | Нужна задача или смена статуса | `create_task_draft`, `update_task_draft` |
 
 ## 1. Начало работы
@@ -57,7 +58,8 @@ Revision — общая память проекта: следующий, кто 
 - `why` — самое ценное поле: почему так, а не иначе.
 - У решения — `rejected`: что отвергли и почему (`[{option, why}]`). Сервер предупредит
   (`rejected_match`, `rejected_before`), если отвергнутое предложат снова, — скажи об этом человеку.
-- `paths` — файлы, на которые запись опирается, и `commit` — текущий `git rev-parse HEAD`.
+- `paths` — файлы, на которые запись опирается, и `commit` — текущий `git rev-parse HEAD`. Репозиториев
+  у проекта несколько — ещё `repository` (`git remote get-url origin`).
 - `body` — коротко: суть, где в коде, ссылки на связанное.
 - Папка по теме есть (`list_documents`) — передай её в `folder`.
 - **Никогда** не записывай ключи, пароли, токены и значения из `.env` — только имя переменной.
@@ -72,7 +74,8 @@ Revision — общая память проекта: следующий, кто 
 
 ## Сверка с кодом
 Запись пришла с полем `code` (`paths`, `commit`, `verified`) — прежде чем на неё опереться, проверь:
-`git log --oneline <commit>..HEAD -- <paths>`.
+`git log --oneline <commit>..HEAD -- <paths>`. `code.changed` — коммит после сверки уже тронул эти
+файлы: сверь обязательно. Такие записи называют `link_commits` (`code_changed`) и `what_changed`.
 - Изменений нет или запись всё ещё верна → `confirm_memory` (`id`, `commit` — текущий HEAD).
 - Код поменял суть → поправь запись: новое решение с `supersedes`, заметку — `edit_document`.
 
@@ -99,8 +102,9 @@ Revision — общая память проекта: следующий, кто 
 
 ## 6. Коммиты
 - Коммит по задаче — строка `Revision: KEY` в конце сообщения (рядом с `Co-Authored-By`).
-- Затем `link_commits`: коммиты — из `git log --format='%H%x1f%an%x1f%aI%x1f%B%x1e'`,
-  `repository` — `git remote get-url origin`. Хостинг не важен, повтор безопасен.
+- Затем `link_commits`: коммиты — из `git log --format='%H%x1f%an%x1f%aI%x1f%B%x1e'`, у каждого
+  `files` — `git show --name-only --format= <sha>`; `repository` — `git remote get-url origin`.
+  Хостинг не важен, повтор безопасен. Ответ `code_changed` — записи, чей код ты поменял: сверь.
 - Ответ спросит (`remember.ask`), что из работы записать. Ответь делом: решённое, причину сбоя,
   приём — одним `remember` с `items` (`paths`, `commit`, в body `[[KEY]]`). Нечего — пропусти.
 - `git blame` привёл к коммиту со строкой `Revision:` — открой `get_task`: там причина и решения.
